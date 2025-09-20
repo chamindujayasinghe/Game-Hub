@@ -31,7 +31,7 @@ function PlatformIconList({ platform }: props) {
   };
   return (
     <>
-      <HStack marginTop={2}>
+      <HStack>
         {platform.map((platform) => (
           <Icon
             as={iconMap[platform.slug]}

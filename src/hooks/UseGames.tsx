@@ -9,6 +9,7 @@ export interface platforms {
 }
 
 export interface Game {
+  metacritic: number;
   background_image: string;
   id: number;
   name: string;
