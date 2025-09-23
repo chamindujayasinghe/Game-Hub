@@ -1,13 +1,16 @@
-import { CardBody, CardRoot, Skeleton, SkeletonText } from "@chakra-ui/react";
+import { Card, Skeleton, SkeletonText, AspectRatio } from "@chakra-ui/react";
 
 const GameCardSkeleton = () => {
   return (
-    <CardRoot>
-      <Skeleton height={"200px"} />
-      <CardBody>
+    <Card.Root>
+      <AspectRatio ratio={16 / 9}>
+        <Skeleton />
+      </AspectRatio>
+      <Card.Body>
         <SkeletonText />
-      </CardBody>
-    </CardRoot>
+      </Card.Body>
+    </Card.Root>
   );
 };
+
 export default GameCardSkeleton;

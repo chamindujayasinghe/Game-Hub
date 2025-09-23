@@ -1,27 +1,33 @@
 import type { Game } from "@/hooks/UseGames";
-import { CardBody, CardRoot, CardTitle, HStack, Image } from "@chakra-ui/react";
+import { Card, HStack, Image, AspectRatio } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import MetacriticScore from "./MetacriticScore";
 import ImageUrl from "@/services/ImageUrl";
 
-interface props {
+interface Props {
   game: Game;
 }
 
-function GameCard({ game }: props) {
+function GameCard({ game }: Props) {
   return (
-    <CardRoot>
-      <Image src={ImageUrl(game.background_image)} alt={game.name} />
-      <CardBody>
-        <CardTitle fontSize="md">{game.name}</CardTitle>
-        <HStack marginTop={2} justifyContent={"space-between"}>
+    <Card.Root>
+      <AspectRatio ratio={16 / 9}>
+        <Image
+          src={ImageUrl(game.background_image)}
+          alt={game.name}
+          objectFit="cover"
+        />
+      </AspectRatio>
+      <Card.Body>
+        <Card.Title fontSize="md">{game.name}</Card.Title>
+        <HStack marginTop={2} justifyContent="space-between">
           <PlatformIconList
             platform={game.parent_platforms.map((p) => p.platform)}
           />
           <MetacriticScore score={game.metacritic} />
         </HStack>
-      </CardBody>
-    </CardRoot>
+      </Card.Body>
+    </Card.Root>
   );
 }
 

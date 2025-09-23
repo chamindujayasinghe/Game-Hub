@@ -36,8 +36,9 @@ function PlatformIconList({ platform }: props) {
           <Icon
             as={iconMap[platform.slug]}
             color={"gray.500"}
-            size={"md"}
-            marginRight={1}
+            size={"sm"}
+            marginRight={"2px"}
+            key={platform.id}
           />
         ))}
       </HStack>
