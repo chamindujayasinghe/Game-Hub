@@ -30,4 +30,4 @@ const data = <T>(endpoint:string,requestConfig?:AxiosRequestConfig,deps?:any[]) 
       return { data, errors, isLoading };
 }
 
-export default data
+export default data;

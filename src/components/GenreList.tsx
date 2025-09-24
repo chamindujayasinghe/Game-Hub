@@ -8,7 +8,8 @@ interface props {
 }
 
 const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
-  const { data, isLoading } = UseGenres();
+  const { data, isLoading, errors } = UseGenres();
+  if (errors) return null;
 
   if (isLoading) return <Spinner />;
   return (

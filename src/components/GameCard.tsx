@@ -22,7 +22,9 @@ function GameCard({ game }: Props) {
         <Card.Title fontSize="md">{game.name}</Card.Title>
         <HStack marginTop={2} justifyContent="space-between">
           <PlatformIconList
-            platform={game.parent_platforms.map((p) => p.platform)}
+            platform={game.parent_platforms
+              .map((p) => p.platform)
+              .filter((p) => p.slug !== "neo-geo" && p.slug !== "3do")}
           />
           <MetacriticScore score={game.metacritic} />
         </HStack>

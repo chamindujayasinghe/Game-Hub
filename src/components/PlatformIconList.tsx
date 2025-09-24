@@ -13,7 +13,7 @@ import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import type { IconType } from "react-icons";
 
-interface props {
+export interface props {
   platform: platforms[];
 }
 
@@ -29,10 +29,11 @@ function PlatformIconList({ platform }: props) {
     nintendo: SiNintendo,
     web: BsGlobe,
   };
+  const filteredPlatforms = platform.filter((p) => iconMap[p.slug]);
   return (
     <>
       <HStack>
-        {platform.map((platform) => (
+        {filteredPlatforms.map((platform) => (
           <Icon
             as={iconMap[platform.slug]}
             color={"gray.500"}
