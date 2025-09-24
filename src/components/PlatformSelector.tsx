@@ -1,3 +1,4 @@
+import type { GameQuery } from "@/App";
 import type { platforms } from "@/hooks/UseGames";
 import UsePlatforms from "@/hooks/UsePlatforms";
 import { Button, Portal, Text } from "@chakra-ui/react";
@@ -6,16 +7,16 @@ import { BsChevronDown } from "react-icons/bs";
 
 interface props {
   onSelectedPlatform: (platform: platforms) => void;
-  selectedPlatform: platforms | null;
+  gameQuery: GameQuery;
 }
 
-const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: props) => {
+const PlatformSelector = ({ onSelectedPlatform, gameQuery }: props) => {
   const { data } = UsePlatforms();
   return (
     <Menu.Root>
       <Menu.Trigger asChild>
         <Button display={"flex"} justifyContent={"space-between"}>
-          <Text>{selectedPlatform?.name || "platforms"}</Text>
+          <Text>{gameQuery.platforms?.name || "platforms"}</Text>
           <BsChevronDown size={4} />
         </Button>
       </Menu.Trigger>
