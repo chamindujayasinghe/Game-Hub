@@ -4,9 +4,10 @@ import { Button, HStack, Image, List, Spinner } from "@chakra-ui/react";
 
 interface props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: props) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
   const { data, isLoading } = UseGenres();
 
   if (isLoading) return <Spinner />;
@@ -21,8 +22,9 @@ const GenreList = ({ onSelectGenre }: props) => {
               src={ImageUrl(i.image_background)}
             />
             <Button
+              color={i.id === selectedGenre?.id ? "red" : ""}
               onClick={() => onSelectGenre(i)}
-              variant="ghost"
+              variant="plain"
               fontSize={"lg"}
             >
               {i.name}
