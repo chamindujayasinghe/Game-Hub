@@ -1,13 +1,14 @@
+import type { GameQuery } from "@/App";
 import UseGenres, { type Genre } from "@/hooks/UseGenres";
 import ImageUrl from "@/services/ImageUrl";
 import { Button, HStack, Image, List, Spinner } from "@chakra-ui/react";
 
 interface props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  gameQuery: GameQuery;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
+const GenreList = ({ gameQuery, onSelectGenre }: props) => {
   const { data, isLoading, errors } = UseGenres();
   if (errors) return null;
 
@@ -23,7 +24,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: props) => {
               src={ImageUrl(i.image_background)}
             />
             <Button
-              color={i.id === selectedGenre?.id ? "red" : ""}
+              color={i.id === gameQuery.genres?.id ? "red" : ""}
               onClick={() => onSelectGenre(i)}
               variant="plain"
               fontSize={"lg"}
