@@ -22,6 +22,7 @@ const SearchInput = ({ onSearchInput }: props) => {
           placeholder="search game..."
           borderRadius="20px"
           variant="outline"
+          fontSize={{ base: "46px", md: "16px" }}
         />
       </InputGroup>
     </form>
