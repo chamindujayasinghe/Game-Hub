@@ -50,7 +50,7 @@ function App() {
             onSelectGenre={(genres) => setGameQuery({ ...gameQuery, genres })}
           />
         </GridItem>
-        <GridItem area={"main"} paddingX={2}>
+        <GridItem area={"main"} paddingX={1}>
           <GameHeading gameQuery={gameQuery} />
           <HStack pl={3}>
             <PlatformSelector
