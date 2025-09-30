@@ -18,7 +18,7 @@ export interface GameQuery {
 
 function App() {
   useEffect(() => {
-    document.title === "Game-Hub";
+    document.title = "Game-Hub";
   }, []);
   const [gameQuery, setGameQuery] = useState({} as GameQuery);
   return (
