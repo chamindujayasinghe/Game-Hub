@@ -3,6 +3,7 @@ import { Card, HStack, Image, AspectRatio } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
 import MetacriticScore from "./MetacriticScore";
 import ImageUrl from "@/services/ImageUrl";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -19,8 +20,7 @@ function GameCard({ game }: Props) {
         />
       </AspectRatio>
       <Card.Body>
-        <Card.Title fontSize="md">{game.name}</Card.Title>
-        <HStack marginTop={2} justifyContent="space-between">
+        <HStack wrap={"wrap"} mb={3} justifyContent="space-between">
           <PlatformIconList
             platform={game.parent_platforms
               .map((p) => p.platform)
@@ -28,6 +28,10 @@ function GameCard({ game }: Props) {
           />
           <MetacriticScore score={game.metacritic} />
         </HStack>
+        <Card.Title fontSize="md">
+          {game.name}
+          <Emoji rating={game.rating_top} />
+        </Card.Title>
       </Card.Body>
     </Card.Root>
   );

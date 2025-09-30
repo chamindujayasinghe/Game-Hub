@@ -13,6 +13,8 @@ export interface Game {
   id: number;
   name: string;
   parent_platforms: { platform: platforms }[];
+  rating: number;
+  rating_top: number;
 }
 
 const UseGames = (gameQuery: GameQuery) =>

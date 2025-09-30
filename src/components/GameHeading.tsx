@@ -10,7 +10,7 @@ const GameHeading = ({ gameQuery }: props) => {
     gameQuery.genres?.name || ""
   } Games`;
   return (
-    <Heading as={"h1"} fontSize={40} pb={4} pl={3}>
+    <Heading as={"h1"} fontSize={{ base: 20, lg: 35 }} pb={4} pl={3}>
       {heading}
     </Heading>
   );
