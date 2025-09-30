@@ -2,7 +2,7 @@ import { Grid, GridItem, HStack } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Genre } from "./hooks/UseGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import type { platforms } from "./hooks/UseGames";
@@ -17,6 +17,9 @@ export interface GameQuery {
 }
 
 function App() {
+  useEffect(() => {
+    document.title === "Game-Hub";
+  }, []);
   const [gameQuery, setGameQuery] = useState({} as GameQuery);
   return (
     <>
